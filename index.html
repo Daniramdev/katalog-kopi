@@ -44,20 +44,10 @@ h2{font-size:clamp(2.2rem,5vw,3.8rem)}
 button.btn{font:500 .95rem var(--sans)}
 .btn:disabled{opacity:.4;cursor:not-allowed}
 
-/* ===== LOGO GAMBAR ===== */
-.logo-img{
-  display:inline-flex;align-items:center;
-  line-height:0;
-  transition:opacity .3s,transform .3s
-}
-.logo-img img{
-  height:40px;width:auto;display:block;
-  object-fit:contain;
-  filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))
-}
+.logo-img{display:inline-flex;align-items:center;line-height:0;transition:opacity .3s,transform .3s}
+.logo-img img{height:40px;width:auto;display:block;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3))}
 .logo-img:hover{opacity:.85;transform:scale(1.03)}
 
-/* ===== NAVBAR ===== */
 nav{
   position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);
   z-index:10;width:min(980px,calc(100% - 28px));
@@ -158,7 +148,6 @@ nav .btn{padding:9px 20px;font-size:.85rem}
 
 .navr-wrap{position:relative}
 
-/* ===== HERO ===== */
 .hero{min-height:100vh;display:grid;align-content:center;padding:150px 0 90px;position:relative}
 .hero h1{font-size:clamp(3.4rem,10.5vw,9rem);letter-spacing:-.02em;max-width:11ch}
 .hero h1 em{color:var(--brass)}
@@ -296,7 +285,6 @@ section{padding:110px 0}
 footer{padding:50px 0 70px;color:var(--dim);font-size:.88rem}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:1px solid var(--edge);padding-top:30px}
 
-/* ===== MODAL LOGIN/REGISTER ===== */
 .modal-scrim{
   position:fixed;inset:0;z-index:55;
   background:rgba(0,0,0,.78);
@@ -334,7 +322,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
 .modal .close-x:hover{background:rgba(255,255,255,.14)}
 .modal .close-x svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
 
-/* logo di modal */
 .modal .brand{display:flex;align-items:center;justify-content:center;margin-bottom:14px}
 .modal .brand img{height:34px;width:auto;object-fit:contain}
 
@@ -406,7 +393,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
 .m-step.on{display:block;animation:stepIn .3s cubic-bezier(.2,.8,.2,1)}
 @keyframes stepIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
-/* ===== DETAIL PRODUK ===== */
 #detail{
   position:fixed;inset:0;z-index:35;overflow:auto;background:rgba(10,30,30,.94);
   backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);
@@ -479,7 +465,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
 .dspecs b{display:block;font-weight:500;font-size:.78rem;color:var(--mist);margin-bottom:3px}
 .dspecs small{color:var(--dim);font-size:.78rem}
 
-/* ===== SIDEBAR MOBILE ===== */
 .mscrim{
   position:fixed;inset:0;z-index:24;background:rgba(0,0,0,.55);
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
@@ -502,7 +487,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
   font-family:var(--serif);font-size:1.55rem;line-height:1.2;
   border-bottom:1px solid rgba(255,255,255,.08);
   opacity:0;transform:translateX(-16px);
-  transition:opacity .5s,transform .5s,padding-left .35s,color .3s
+  transition:opacity .5s,transform .5s,padding-left .35s,color .3s;
+  cursor:pointer
 }
 .mlinks a span{font:500 .68rem var(--sans);letter-spacing:.12em;color:var(--brass)}
 .mlinks a:hover{color:var(--brass);padding-left:10px}
@@ -530,7 +516,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
 .m-user b{display:block;font-weight:500;font-size:.9rem;color:var(--mist)}
 .m-user small{color:var(--dim);font-size:.76rem;word-break:break-word}
 
-/* ===== CHECKOUT ===== */
 #checkout{
   position:fixed;inset:0;z-index:30;overflow:auto;background:rgba(10,30,30,.94);
   backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);
@@ -781,7 +766,124 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
 #toast.on{transform:translateX(-50%);opacity:1}
 #toast svg{width:18px;height:18px;flex:none;stroke:var(--brass);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-/* ===== RESPONSIVE ===== */
+/* ===== RIWAYAT PESANAN USER ===== */
+#ordersModalBox{
+  width:min(600px,100%);
+  max-height:calc(100vh - 32px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));
+  max-height:calc(100dvh - 32px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));
+  display:flex;flex-direction:column;overflow:hidden
+}
+#ordersTitle{
+  font-family:var(--serif);font-weight:400;font-size:1.4rem;
+  text-align:center;margin:0 0 4px;line-height:1.2
+}
+#ordersSub{
+  color:var(--dim);font-size:.82rem;text-align:center;
+  margin:0 0 18px;line-height:1.5
+}
+.ord-tabs{
+  display:flex;gap:6px;margin-bottom:16px;padding:4px;
+  border-radius:99px;background:rgba(0,0,0,.22);
+  border:1px solid rgba(255,255,255,.08);
+  overflow-x:auto;scrollbar-width:none;flex:none
+}
+.ord-tabs::-webkit-scrollbar{display:none}
+.ord-tab{
+  flex:1;min-width:70px;padding:8px 12px;border-radius:99px;
+  background:none;border:0;color:var(--dim);
+  font:500 .78rem var(--sans);cursor:pointer;
+  transition:background .25s,color .25s;white-space:nowrap
+}
+.ord-tab:hover{color:var(--mist)}
+.ord-tab.on{
+  background:linear-gradient(135deg,#f0cd8a,var(--brass) 55%,#b98334);
+  color:#2a1c06;font-weight:600
+}
+.ord-body{
+  overflow-y:auto;flex:1;padding-right:4px;min-height:200px
+}
+.ord-body::-webkit-scrollbar{width:6px}
+.ord-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:99px}
+
+.ord-empty{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;padding:40px 20px;gap:6px
+}
+.ord-empty svg{margin-bottom:10px;opacity:.5}
+.ord-empty h3{
+  font-family:var(--sans);font-size:1rem;font-weight:600;
+  color:var(--mist);margin:0
+}
+.ord-empty p{
+  color:var(--dim);font-size:.85rem;margin:0 0 16px;
+  max-width:36ch;line-height:1.6
+}
+
+.ord-card{
+  padding:16px 18px;border-radius:16px;margin-bottom:12px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  display:flex;flex-direction:column;gap:12px
+}
+.ord-card:last-child{margin-bottom:0}
+.ord-head{
+  display:flex;justify-content:space-between;
+  align-items:flex-start;gap:12px;flex-wrap:wrap
+}
+.ord-head>div{min-width:0;flex:1}
+.ord-no{
+  display:block;font:600 .9rem var(--sans);color:var(--brass);
+  margin-bottom:3px;word-break:break-all
+}
+.ord-date{color:var(--dim);font-size:.72rem}
+.ord-status{
+  font-size:.7rem;font-weight:600;padding:4px 12px;
+  border-radius:99px;border:1px solid;white-space:nowrap;
+  letter-spacing:.02em
+}
+.ord-status.s-menunggu{color:#dcae62;border-color:rgba(220,174,98,.5);background:rgba(220,174,98,.1)}
+.ord-status.s-lunas{color:#5ccf8a;border-color:rgba(92,207,138,.5);background:rgba(92,207,138,.1)}
+.ord-status.s-dikirim{color:#7ec2ff;border-color:rgba(126,194,255,.5);background:rgba(126,194,255,.1)}
+.ord-status.s-selesai{color:#a9bdb6;border-color:rgba(169,189,182,.4);background:rgba(169,189,182,.08)}
+.ord-status.s-batal{color:#ff9e9e;border-color:rgba(255,158,158,.5);background:rgba(255,158,158,.1)}
+
+.ord-items{
+  display:flex;flex-direction:column;gap:5px;
+  padding:12px 0;
+  border-top:1px dashed rgba(255,255,255,.1);
+  border-bottom:1px dashed rgba(255,255,255,.1)
+}
+.ord-item{
+  display:flex;justify-content:space-between;gap:12px;
+  font-size:.83rem;color:var(--dim)
+}
+.ord-item span:first-child{flex:1;min-width:0}
+.ord-item span:last-child{color:var(--mist);font-weight:500;white-space:nowrap}
+
+.ord-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;font-size:.8rem;color:var(--dim);flex-wrap:wrap
+}
+.ord-foot b{color:var(--mist);font-weight:500}
+.ord-total{font:600 1.1rem var(--sans);color:var(--brass);white-space:nowrap}
+
+.ord-actions{
+  display:flex;gap:8px;flex-wrap:wrap;
+  padding-top:10px;border-top:1px dashed rgba(255,255,255,.08)
+}
+.ord-actions .btn{
+  padding:9px 16px;font-size:.78rem;border-radius:99px;
+  flex:1;min-width:120px;text-align:center
+}
+.ord-actions .btn svg{
+  width:13px;height:13px;vertical-align:-2px;margin-right:5px;
+  stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round
+}
+
+.ord-login-cta{display:flex;flex-direction:column;gap:10px;width:100%;max-width:260px;margin-top:4px}
+.ord-login-cta .btn{width:100%}
+
 @media(max-width:980px){
   .rev-hero{grid-template-columns:1fr}
   .co{grid-template-columns:1fr}
@@ -799,7 +901,6 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
   .user-chip .un{display:none}
   .user-chip{padding:4px}
 
-  /* Logo mobile lebih kecil */
   .logo-img img{height:34px}
 
   .story{grid-template-columns:1fr}
@@ -914,6 +1015,15 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
   .m-foot{font-size:.74rem;margin-top:12px}
   .m-fine{font-size:.64rem;margin-top:10px}
   .modal .brand img{height:30px}
+
+  /* Riwayat pesanan mobile */
+  #ordersTitle{font-size:1.2rem}
+  #ordersSub{font-size:.78rem;margin-bottom:14px}
+  .ord-tab{padding:7px 10px;font-size:.74rem;min-width:64px}
+  .ord-card{padding:14px 14px;border-radius:14px}
+  .ord-no{font-size:.84rem}
+  .ord-total{font-size:1rem}
+  .ord-actions .btn{min-width:100px;padding:8px 12px;font-size:.74rem}
 }
 
 @media(max-height:640px){
@@ -955,7 +1065,7 @@ html.lenis{scroll-behavior:auto;height:auto}
     <li><a href="#koleksi">Koleksi</a></li>
     <li><a href="#review">Ulasan</a></li>
     <li><a href="#cerita">Cerita</a></li>
-    <li><a href="#nilai">Nilai</a></li>
+    <li><a href="#" id="navOrders">Riwayat Pesanan</a></li>
   </ul>
   <div class="navr">
     <button class="ibtn mbtn" id="menuBtn" aria-label="Buka menu" aria-expanded="false" aria-controls="msidebar">
@@ -1226,9 +1336,7 @@ html.lenis{scroll-behavior:auto;height:auto}
     <h3 id="authTitle">Masuk ke akun Anda</h3>
     <p id="authSub">Pilih metode untuk melanjutkan. Cepat, aman, dan tanpa ribet.</p>
 
-    <!-- ===== LOGIN STEP ===== -->
     <div class="m-step on" id="stepLogin">
-
       <div class="social-auth">
         <button type="button" class="social-btn google" data-provider="google" aria-label="Masuk dengan Google">
           <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -1280,7 +1388,6 @@ html.lenis{scroll-behavior:auto;height:auto}
       <div class="m-fine">Dengan masuk, Anda menyetujui syarat & ketentuan Kopi Bandung.</div>
     </div>
 
-    <!-- ===== REGISTER STEP ===== -->
     <div class="m-step" id="stepReg">
       <div class="social-auth">
         <button type="button" class="social-btn google" data-provider="google" aria-label="Daftar dengan Google">
@@ -1339,6 +1446,28 @@ html.lenis{scroll-behavior:auto;height:auto}
   </div>
 </div>
 
+<!-- ================= MODAL RIWAYAT PESANAN USER ================= -->
+<div class="modal-scrim" id="ordersModal" aria-hidden="true" role="dialog" aria-labelledby="ordersTitle">
+  <div class="modal" id="ordersModalBox">
+    <button class="close-x" id="ordersClose" aria-label="Tutup">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+
+    <h3 id="ordersTitle">Riwayat Pesanan</h3>
+    <p id="ordersSub">Semua pesanan yang pernah Anda buat</p>
+
+    <div class="ord-tabs" id="ordTabs">
+      <button class="ord-tab on" data-filter="all">Semua</button>
+      <button class="ord-tab" data-filter="Menunggu">Menunggu</button>
+      <button class="ord-tab" data-filter="Lunas">Lunas</button>
+      <button class="ord-tab" data-filter="Dikirim">Dikirim</button>
+      <button class="ord-tab" data-filter="Selesai">Selesai</button>
+    </div>
+
+    <div id="ordersBody" class="ord-body"></div>
+  </div>
+</div>
+
 <!-- ================= SIDEBAR MOBILE ================= -->
 <div class="mscrim" id="mscrim"></div>
 <aside class="msidebar glass" id="msidebar" data-lenis-prevent aria-label="Menu navigasi" aria-hidden="true">
@@ -1359,7 +1488,7 @@ html.lenis{scroll-behavior:auto;height:auto}
     <a href="#koleksi"><span>01</span>Koleksi</a>
     <a href="#review"><span>02</span>Ulasan</a>
     <a href="#cerita"><span>03</span>Cerita</a>
-    <a href="#nilai"><span>04</span>Nilai</a>
+    <a href="#" id="mOrders"><span>04</span>Riwayat Pesanan</a>
     <a href="#anggota"><span>05</span>Klub Kopi Bandung</a>
   </nav>
   <div class="mfoot">
@@ -1674,12 +1803,13 @@ function toast(msg){
 </script>
 
 <script>
+/* ============ AUTH + RIWAYAT PESANAN USER ============ */
 (function(){
   const $ = q => document.querySelector(q);
 
-  /* ===== STORAGE ===== */
   const LS_USERS = 'kb_users_v2';
   const LS_SESS  = 'kb_session_v2';
+  const LS_ORDERS = 'kb_orders_v1';
 
   function loadUsers(){
     try { return JSON.parse(localStorage.getItem(LS_USERS) || '[]'); }
@@ -1694,6 +1824,11 @@ function toast(msg){
     if(u) localStorage.setItem(LS_SESS, JSON.stringify(u));
     else  localStorage.removeItem(LS_SESS);
   }
+  function loadOrders(){
+    try { return JSON.parse(localStorage.getItem(LS_ORDERS) || '[]'); }
+    catch(e){ return []; }
+  }
+  function saveOrders(arr){ localStorage.setItem(LS_ORDERS, JSON.stringify(arr)); }
 
   let session = loadSession();
 
@@ -1731,14 +1866,14 @@ function toast(msg){
               <div class="provider">via ${providerLabel(session.provider)}</div>
             </div>
           </div>
-          <a href="#anggota" role="menuitem">
-            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
-            Klub Kopi Bandung
-          </a>
           <button type="button" role="menuitem" id="openOrders">
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
             Riwayat pesanan
           </button>
+          <a href="#anggota" role="menuitem">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+            Klub Kopi Bandung
+          </a>
           <div class="sep"></div>
           <button type="button" class="danger" id="doLogout" role="menuitem">
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M16 17l5-5-5-5M21 12H9M13 4H5v16h8"/></svg>
@@ -1792,7 +1927,7 @@ function toast(msg){
     document.getElementById('doLogout').onclick = doLogout;
     document.getElementById('openOrders').onclick = () => {
       dd.classList.remove('on');
-      toast('Riwayat pesanan: belum ada pesanan.');
+      openOrders();
     };
   }
 
@@ -1878,7 +2013,6 @@ function toast(msg){
     if(e.key === 'Escape' && modal.classList.contains('on')) closeAuth();
   });
 
-  /* Social login simulasi */
   const MOCK_PROFILES = {
     google: {
       nama: 'Budi Santoso',
@@ -2003,13 +2137,278 @@ function toast(msg){
     if(session && !nama.value) nama.value = session.nama || '';
   }
 
-  renderAuth();
+  /* ============================================================
+     RIWAYAT PESANAN USER
+     ============================================================ */
+  let ordFilter = 'all';
 
+  function getMyOrders(){
+    if(!session) return [];
+    return loadOrders().filter(o =>
+      (o.userId && o.userId === session.id) ||
+      (o.email && session.email && o.email.toLowerCase() === session.email.toLowerCase())
+    );
+  }
+
+  const STATUS_LABEL = {
+    'Menunggu': 'Menunggu',
+    'Lunas':    'Lunas',
+    'Dikirim':  'Dikirim',
+    'Selesai':  'Selesai',
+    'Batal':    'Dibatalkan'
+  };
+  function statusClass(s){
+    return 's-' + (s || 'menunggu').toLowerCase();
+  }
+
+  const ordersModal = document.getElementById('ordersModal');
+  const ordersBody  = document.getElementById('ordersBody');
+  const ordTabsEl   = document.getElementById('ordTabs');
+
+  function renderOrders(){
+    const my = getMyOrders();
+
+    let filtered = my;
+    if(ordFilter !== 'all'){
+      filtered = my.filter(o => o.status === ordFilter);
+    }
+
+    if(!session){
+      ordTabsEl.style.display = 'none';
+      ordersBody.innerHTML = `
+        <div class="ord-empty">
+          <svg viewBox="0 0 24 24" width="52" height="52" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>
+          </svg>
+          <h3>Masuk untuk melihat riwayat</h3>
+          <p>Riwayat pesanan hanya tersedia untuk pengguna yang sudah masuk. Silakan login terlebih dahulu.</p>
+          <div class="ord-login-cta">
+            <button class="btn gold" id="ordGoLogin">Masuk / Daftar</button>
+            <button class="btn" id="ordCloseEmpty">Tutup</button>
+          </div>
+        </div>`;
+      const gl = document.getElementById('ordGoLogin');
+      const ce = document.getElementById('ordCloseEmpty');
+      if(gl) gl.onclick = () => { closeOrders(); setTimeout(()=>openAuth('log'), 320); };
+      if(ce) ce.onclick = closeOrders;
+      return;
+    }
+
+    ordTabsEl.style.display = 'flex';
+    ordTabsEl.querySelectorAll('.ord-tab').forEach(t => {
+      t.classList.toggle('on', t.dataset.filter === ordFilter);
+    });
+
+    if(my.length === 0){
+      ordersBody.innerHTML = `
+        <div class="ord-empty">
+          <svg viewBox="0 0 24 24" width="52" height="52" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 4h2.4l2.2 11h10.2l2-8H6.4"/>
+            <circle cx="9" cy="19.5" r="1.3"/>
+            <circle cx="17" cy="19.5" r="1.3"/>
+          </svg>
+          <h3>Belum ada pesanan</h3>
+          <p>Anda belum pernah melakukan pemesanan. Mulai jelajahi koleksi kami.</p>
+          <div class="ord-login-cta">
+            <button class="btn gold" id="ordGoShop">Lihat koleksi</button>
+          </div>
+        </div>`;
+      const gs = document.getElementById('ordGoShop');
+      if(gs) gs.onclick = closeOrders;
+      return;
+    }
+
+    if(filtered.length === 0){
+      ordersBody.innerHTML = `
+        <div class="ord-empty">
+          <h3>Tidak ada pesanan</h3>
+          <p>Tidak ada pesanan dengan status <b style="color:var(--brass)">${STATUS_LABEL[ordFilter] || ordFilter}</b>.</p>
+          <div class="ord-login-cta">
+            <button class="btn" id="ordResetFilter">Lihat semua</button>
+          </div>
+        </div>`;
+      const rf = document.getElementById('ordResetFilter');
+      if(rf) rf.onclick = () => { ordFilter = 'all'; renderOrders(); };
+      return;
+    }
+
+    ordersBody.innerHTML = filtered.map(o => {
+      const date = new Date(o.date).toLocaleString('id-ID', {
+        day:'numeric', month:'short', year:'numeric',
+        hour:'2-digit', minute:'2-digit'
+      });
+      const items = (o.items || []).map(it =>
+        `<div class="ord-item">
+           <span>${it.n} ×${it.q}</span>
+           <span>${fmt(it.p * it.q)}</span>
+         </div>`
+      ).join('');
+
+      let actions = '';
+      if(o.status === 'Menunggu'){
+        actions = `
+          <a class="btn gold" href="${waLinkForOrder(o)}" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-13.3 7.8L3 21l1.2-4.7A9 9 0 1121 12z"/></svg>
+            Konfirmasi bayar
+          </a>
+          <button class="btn" data-cancel="${o.no}">
+            <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            Batalkan
+          </button>`;
+      } else if(o.status === 'Lunas'){
+        actions = `
+          <a class="btn" href="${waLinkForOrder(o)}" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-13.3 7.8L3 21l1.2-4.7A9 9 0 1121 12z"/></svg>
+            Tanya admin
+          </a>`;
+      } else if(o.status === 'Dikirim'){
+        actions = `
+          <button class="btn gold" data-done="${o.no}">
+            <svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
+            Pesanan diterima
+          </button>`;
+      } else if(o.status === 'Selesai'){
+        actions = `
+          <button class="btn" data-again="${o.no}">
+            <svg viewBox="0 0 24 24"><path d="M4 4v6h6M20 20v-6h-6"/><path d="M20 9A8 8 0 006 5.3M4 15a8 8 0 0014 3.7"/></svg>
+            Beli lagi
+          </button>`;
+      }
+
+      return `
+        <div class="ord-card" data-no="${o.no}">
+          <div class="ord-head">
+            <div>
+              <b class="ord-no">${o.no}</b>
+              <small class="ord-date">${date}</small>
+            </div>
+            <span class="ord-status ${statusClass(o.status)}">${STATUS_LABEL[o.status] || o.status}</span>
+          </div>
+          <div class="ord-items">${items}</div>
+          <div class="ord-foot">
+            <span>Metode: <b>${o.payLabel || o.m || '-'}</b></span>
+            <span class="ord-total">${fmt(o.total)}</span>
+          </div>
+          ${actions ? `<div class="ord-actions">${actions}</div>` : ''}
+        </div>`;
+    }).join('');
+
+    ordersBody.querySelectorAll('[data-cancel]').forEach(b => {
+      b.onclick = () => {
+        if(!confirm('Yakin ingin membatalkan pesanan ini?')) return;
+        updateOrderStatus(b.dataset.cancel, 'Batal');
+        toast('Pesanan dibatalkan');
+        renderOrders();
+      };
+    });
+    ordersBody.querySelectorAll('[data-done]').forEach(b => {
+      b.onclick = () => {
+        updateOrderStatus(b.dataset.done, 'Selesai');
+        toast('Terima kasih! Pesanan selesai 🎉');
+        renderOrders();
+      };
+    });
+    ordersBody.querySelectorAll('[data-again]').forEach(b => {
+      b.onclick = () => {
+        const order = loadOrders().find(o => o.no === b.dataset.again);
+        if(!order) return;
+        (order.items || []).forEach(it => {
+          const idx = PRODUCTS.findIndex(p => p.name === it.n);
+          if(idx >= 0) P[idx].q += it.q;
+        });
+        render();
+        closeOrders();
+        setTimeout(()=>drawer(true), 350);
+        toast('Produk ditambahkan ke keranjang');
+      };
+    });
+  }
+
+  function waLinkForOrder(o){
+    const L = (o.items || []).map(it => `- ${it.n} ×${it.q}`).join('\n');
+    const msg = `Halo Kopi Bandung, saya ingin menanyakan pesanan saya.\n\nNomor: ${o.no}\nNama: ${o.nama}\nTotal: ${fmt(o.total)}\nStatus: ${o.status}\n\nItem:\n${L}`;
+    return 'https://wa.me/6281234567890?text=' + encodeURIComponent(msg);
+  }
+
+  let _ordScrollY = 0;
+  function openOrders(){
+    ordFilter = 'all';
+    renderOrders();
+    _ordScrollY = window.scrollY || 0;
+    ordersModal.classList.add('on');
+    ordersModal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    if(window.__lenis) window.__lenis.stop();
+    document.querySelectorAll('.user-dd').forEach(d => d.classList.remove('on'));
+  }
+  function closeOrders(){
+    ordersModal.classList.remove('on');
+    ordersModal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    if(window.__lenis) window.__lenis.start();
+    window.scrollTo(0, _ordScrollY);
+  }
+
+  document.getElementById('ordersClose').onclick = closeOrders;
+  ordersModal.addEventListener('click', e => {
+    if(e.target === ordersModal) closeOrders();
+  });
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape' && ordersModal.classList.contains('on')) closeOrders();
+  });
+
+  ordTabsEl.addEventListener('click', e => {
+    const t = e.target.closest('.ord-tab');
+    if(!t) return;
+    ordFilter = t.dataset.filter;
+    renderOrders();
+  });
+
+  /* Navbar & Sidebar */
+  const navOrdersBtn = document.getElementById('navOrders');
+  const mOrdersBtn   = document.getElementById('mOrders');
+  if(navOrdersBtn){
+    navOrdersBtn.addEventListener('click', e => {
+      e.preventDefault();
+      openOrders();
+    });
+  }
+  if(mOrdersBtn){
+    mOrdersBtn.addEventListener('click', e => {
+      e.preventDefault();
+      if(window.closeSidebar) window.closeSidebar();
+      setTimeout(openOrders, 350);
+    });
+  }
+
+  /* Expose API */
   window.KB_AUTH = {
     getUser: () => session,
     open: openAuth,
     toast
   };
+  window.KB_ORDERS = {
+    open: openOrders,
+    close: closeOrders,
+    list: getMyOrders,
+    save(order){
+      const orders = loadOrders();
+      orders.unshift(order);
+      saveOrders(orders);
+    },
+    update(no, status){
+      const orders = loadOrders();
+      const idx = orders.findIndex(o => o.no === no);
+      if(idx >= 0){
+        orders[idx].status = status;
+        if(status === 'Lunas') orders[idx].paidAt = new Date().toISOString();
+        saveOrders(orders);
+      }
+    }
+  };
+
+  renderAuth();
 })();
 </script>
 
@@ -2062,84 +2461,36 @@ const rm=matchMedia('(prefers-reduced-motion:reduce)').matches,G=typeof gsap!=='
 let lenis;
 
 const PRODUCTS = [
-  {
-    name:'AeroPress Original', tag:'Best seller', badge:'Terlaris',
-    img:'images/AeroPress.jpg',
-    gallery:[
-      'images/AeroPress.jpg',
-      'images/AeroPress.jpg',
-      'images/AeroPress.jpg',
-      'images/AeroPress.jpg'
-    ],
+  { name:'AeroPress Original', tag:'Best seller', badge:'Terlaris', img:'images/AeroPress.jpg',
+    gallery:['images/AeroPress.jpg','images/AeroPress.jpg','images/AeroPress.jpg','images/AeroPress.jpg'],
     price:585000, old:720000, sold:342, rating:4.9, reviews:128, stock:24, loc:'Bandung',
-    desc:'AeroPress Original — alat seduh manual serbaguna dengan sistem tekan udara. Menghasilkan kopi bersih dengan body penuh dalam waktu kurang dari 2 menit. Cocok untuk di rumah, kantor, atau dibawa traveling.',
-    specs:[['Material','Polypropylene food-grade'],['Kapasitas','1–3 cangkir'],['Kompatibel','Filter mikro paper'],['Garansi','2 tahun servis']]
-  },
-  {
-    name:'Mesin Espresso Lever', tag:'Premium', badge:'Kolektor',
-    img:'images/espresso-machine.jpg',
-    gallery:[
-      'images/espresso-machine.jpg',
-      'images/espresso-machine.jpg',
-      'images/espresso-machine.jpg',
-      'images/espresso-machine.jpg'
-    ],
+    desc:'AeroPress Original — alat seduh manual serbaguna dengan sistem tekan udara.',
+    specs:[['Material','Polypropylene food-grade'],['Kapasitas','1–3 cangkir'],['Kompatibel','Filter mikro paper'],['Garansi','2 tahun servis']] },
+  { name:'Mesin Espresso Lever', tag:'Premium', badge:'Kolektor', img:'images/espresso-machine.jpg',
+    gallery:['images/espresso-machine.jpg','images/espresso-machine.jpg','images/espresso-machine.jpg','images/espresso-machine.jpg'],
     price:38500000, old:42000000, sold:23, rating:5.0, reviews:18, stock:3, loc:'Bandung',
-    desc:'Mesin espresso manual dengan tuas penekan. Anda mengontrol penuh profil tekanan ekstraksi—dari preinfusi lembut hingga 9 bar. Badan kuningan berlapis krom, tiap unit dirakit tangan di bengkel kami.',
-    specs:[['Grup','Lever manual'],['Boiler','1,8 L tembaga'],['Portafilter','58 mm'],['Garansi','5 tahun servis']]
-  },
-  {
-    name:'Gilingan Burr Presisi', badge:'Pro',
-    img:'images/grinder.jpg',
-    gallery:[
-      'images/grinder.jpg',
-      'images/grinder.jpg',
-      'images/grinder.jpg',
-      'images/grinder.jpg'
-    ],
+    desc:'Mesin espresso manual dengan tuas penekan. Anda mengontrol penuh profil tekanan ekstraksi.',
+    specs:[['Grup','Lever manual'],['Boiler','1,8 L tembaga'],['Portafilter','58 mm'],['Garansi','5 tahun servis']] },
+  { name:'Gilingan Burr Presisi', badge:'Pro', img:'images/grinder.jpg',
+    gallery:['images/grinder.jpg','images/grinder.jpg','images/grinder.jpg','images/grinder.jpg'],
     price:6900000, old:8200000, sold:97, rating:4.9, reviews:54, stock:5, loc:'Bandung',
-    desc:'Gilingan dengan mata burr presisi, menghasilkan partikel seragam untuk espresso maupun pour-over. Motor senyap, kalibrasi mikro dengan ring bertingkat, dan bodi kokoh untuk penggunaan harian.',
-    specs:[['Burr','Flat baja presisi'],['Kecepatan','1.400 rpm'],['Kapasitas','250 g'],['Garansi','5 tahun servis']]
-  },
-  {
-    name:'Timbangan Kopi Digital', badge:'Favorit',
-    img:'images/scale.jpg',
-    gallery:[
-      'images/scale.jpg',
-      'images/scale.jpg',
-      'images/scale.jpg',
-      'images/scale.jpg'
-    ],
+    desc:'Gilingan dengan mata burr presisi, menghasilkan partikel seragam untuk espresso maupun pour-over.',
+    specs:[['Burr','Flat baja presisi'],['Kecepatan','1.400 rpm'],['Kapasitas','250 g'],['Garansi','5 tahun servis']] },
+  { name:'Timbangan Kopi Digital', badge:'Favorit', img:'images/scale.jpg',
+    gallery:['images/scale.jpg','images/scale.jpg','images/scale.jpg','images/scale.jpg'],
     price:420000, old:550000, sold:512, rating:4.8, reviews:206, stock:32, loc:'Bandung',
-    desc:'Timbangan digital presisi 0,1 gram dengan timer bawaan, dirancang khusus untuk menyeduh kopi. Permukaan anti-air, layar LED terang, dan pengisian USB-C.',
-    specs:[['Akurasi','0,1 gram'],['Kapasitas','2 kg'],['Baterai','USB-C rechargeable'],['Garansi','1 tahun servis']]
-  },
-  {
-    name:'Syphon Coffee Maker', tag:'Klasik', badge:'Elegan',
-    img:'images/syphon-coffee.jpg',
-    gallery:[
-      'images/syphon-coffee.jpg',
-      'images/syphon-coffee.jpg',
-      'images/syphon-coffee.jpg',
-      'images/syphon-coffee.jpg'
-    ],
+    desc:'Timbangan digital presisi 0,1 gram dengan timer bawaan, dirancang khusus untuk menyeduh kopi.',
+    specs:[['Akurasi','0,1 gram'],['Kapasitas','2 kg'],['Baterai','USB-C rechargeable'],['Garansi','1 tahun servis']] },
+  { name:'Syphon Coffee Maker', tag:'Klasik', badge:'Elegan', img:'images/syphon-coffee.jpg',
+    gallery:['images/syphon-coffee.jpg','images/syphon-coffee.jpg','images/syphon-coffee.jpg','images/syphon-coffee.jpg'],
     price:1450000, old:1800000, sold:76, rating:4.7, reviews:42, stock:9, loc:'Bandung',
-    desc:'Syphon coffee maker dengan bola kaca borosilikat tahan panas. Metode seduh vakum yang menghasilkan kopi bening dengan aroma kompleks—pengalaman menyeduh yang teatrikal dan memuaskan.',
-    specs:[['Material','Borosilikat tahan panas'],['Kapasitas','3 cangkir (360 ml)'],['Kompatibel','Filter kain / metal'],['Garansi','1 tahun servis']]
-  },
-  {
-    name:'Tamper Espresso 58mm', badge:'Wajib',
-    img:'images/tamper.jpg',
-    gallery:[
-      'images/tamper.jpg',
-      'images/tamper.jpg',
-      'images/tamper.jpg',
-      'images/tamper.jpg'
-    ],
+    desc:'Syphon coffee maker dengan bola kaca borosilikat tahan panas.',
+    specs:[['Material','Borosilikat tahan panas'],['Kapasitas','3 cangkir (360 ml)'],['Kompatibel','Filter kain / metal'],['Garansi','1 tahun servis']] },
+  { name:'Tamper Espresso 58mm', badge:'Wajib', img:'images/tamper.jpg',
+    gallery:['images/tamper.jpg','images/tamper.jpg','images/tamper.jpg','images/tamper.jpg'],
     price:385000, old:490000, sold:298, rating:4.9, reviews:112, stock:18, loc:'Bandung',
-    desc:'Tamper espresso 58 mm dengan basis stainless steel dan gagang kayu solid. Permukaan datar presisi untuk pemadatan puck yang konsisten—kunci espresso yang stabil dan merata.',
-    specs:[['Diameter','58 mm'],['Material','Stainless + kayu'],['Berat','320 g'],['Garansi','1 tahun servis']]
-  }
+    desc:'Tamper espresso 58 mm dengan basis stainless steel dan gagang kayu solid.',
+    specs:[['Diameter','58 mm'],['Material','Stainless + kayu'],['Berat','320 g'],['Garansi','1 tahun servis']] }
 ];
 
 const STAR = '<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>';
@@ -2353,7 +2704,6 @@ function openCheckout(){
     {y:60,opacity:0,duration:1.2,ease:'expo.out',stagger:.14,delay:.35});
 }
 
-/* WAJIB LOGIN SEBELUM CHECKOUT */
 $('#toCo').onclick = () => {
   drawer(false);
   if(!window.KB_AUTH || !window.KB_AUTH.getUser()){
@@ -2461,12 +2811,20 @@ $('#qrisPaid').onclick = () => {
   b.textContent = 'Memverifikasi…';
   setTimeout(() => {
     b.textContent = '✓ Terverifikasi';
+    /* Update status → Lunas */
+    if(orderData && window.KB_ORDERS){
+      window.KB_ORDERS.update(orderData.no, 'Lunas');
+      orderData.status = 'Lunas';
+    }
     setTimeout(openDone, 550);
   }, 900);
 };
 
 $('#qrisCancel').onclick = () => {
   if(confirm('Yakin ingin membatalkan pesanan?')){
+    if(orderData && window.KB_ORDERS){
+      window.KB_ORDERS.update(orderData.no, 'Batal');
+    }
     closeQris();
     $('#checkout').hidden = false;
     lenis && lenis.start();
@@ -2488,23 +2846,43 @@ $('#cf').onsubmit = e => {
   const f = new FormData(e.target);
   const m = f.get('pay');
   const no = 'KBD-'+Date.now().toString().slice(-6);
+  const user = window.KB_AUTH && window.KB_AUTH.getUser();
+
   const order = {
     no, m,
+    payLabel: NAMA[m],
     total: tot(),
     nama: f.get('nama'),
     hp: f.get('hp'),
     alamat: f.get('alamat'),
-    catatan: f.get('catatan') || ''
+    catatan: f.get('catatan') || '',
+    userId: user ? user.id : null,
+    email: user ? user.email : null,
+    date: new Date().toISOString(),
+    status: 'Menunggu',
+    items: P.filter(x=>x.q).map(x => ({ n:x.n, q:x.q, p:x.p }))
   };
+
+  /* Simpan riwayat */
+  if(window.KB_ORDERS) window.KB_ORDERS.save(order);
+
   if(m === 'qris'){
     e.target.hidden = true;
     openQris(order);
     return;
   }
+
+  /* Non-QRIS → tandai Lunas */
+  if(window.KB_ORDERS){
+    window.KB_ORDERS.update(no, 'Lunas');
+    order.status = 'Lunas';
+  }
+
   const L = P.filter(x=>x.q).map(x=>`- ${x.n} ×${x.q} = ${fmt(x.p*x.q)}`).join('\n');
   let msg = `Halo Kopi Bandung, saya ingin memesan (${no}):\n${L}\nTotal: ${fmt(order.total)} (belum termasuk ongkir)\n\nNama: ${order.nama}\nWhatsApp: ${order.hp}\nAlamat: ${order.alamat}\nPembayaran: ${NAMA[m]}`;
   if(order.catatan) msg += `\nCatatan: ${order.catatan}`;
   const url = 'https://wa.me/'+WA+'?text='+encodeURIComponent(msg);
+
   orderData = order;
   e.target.hidden = true;
   openDone();
